@@ -7,7 +7,3 @@ define('DB', 'sistema_transporte');
 $conexao = mysqli_connect(HOST, USUARIO, SENHA, DB) or die ('Não foi possível conectar');
 ?>
 
-
-
-
-pasta config
