@@ -296,7 +296,11 @@ $usuario = $_SESSION['usuario'];
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#">Minhas Corridas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Perfil</a></li>
+                    <li class="nav-item">
+  <a class="nav-link" href="Perfil.php?email=<?= urlencode($usuario['email']) ?>">Perfil</a>
+</li>
+
+
                     <li class="nav-item"><a class="nav-link" href="../../controller/logout.php">Sair</a></li>
                 </ul>
             </div>

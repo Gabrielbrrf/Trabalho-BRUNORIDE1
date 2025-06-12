@@ -110,7 +110,8 @@ $usuario = $_SESSION['usuario'];
                 <ul class="navbar-nav ms-auto">
                     
                     <li class="nav-item"><a class="nav-link" href="#">Minhas Corridas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Perfil</a></li>
+                    <a class="nav-link" href="PerfilMotorista.php?email=<?= urlencode($usuario['email']) ?>">Perfil</a>
+
                     <li class="nav-item"><a class="nav-link" href="../../controller/logout.php">Sair</a></li>
                 </ul>
             </div>
