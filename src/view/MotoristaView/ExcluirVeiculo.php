@@ -125,7 +125,7 @@ if (!$veiculo) {
             <a class="navbar-brand" href="#">🚗 Uber Clone</a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Dashboard.php">Início</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Minhas Corridas</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Perfil</a></li>
                     <li class="nav-item"><a class="nav-link" href="../../controller/logout.php">Sair</a></li>

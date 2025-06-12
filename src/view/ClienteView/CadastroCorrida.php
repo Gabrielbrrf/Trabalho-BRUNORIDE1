@@ -12,125 +12,185 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
     <style>
+        /* Reset básico */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            background-color: #f8f9fa;
+            background-color: #121212;
+            color: #e0e0e0;
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            color: #1c1c1e;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            margin: 0;
+            justify-content: space-between;
+            padding: 0 1rem;
         }
 
-        header {
-            background-color: #000;
-            color: #fff;
-            padding: 15px 30px;
-        }
-
-        header .navbar-brand {
+        .brand {
             font-size: 1.5rem;
             font-weight: bold;
+            color: #808080;
         }
 
         .navbar-nav .nav-link {
-            color: #fff;
-            font-weight: 500;
-            margin-left: 15px;
+            color: #e0e0e0;
+            margin-left: 1rem;
         }
 
         .navbar-nav .nav-link:hover {
-            text-decoration: underline;
+            color: #A9A9A9;
         }
 
         h2 {
             font-weight: 600;
             font-size: 1.75rem;
             margin-bottom: 1.5rem;
-            color: #000;
+            color: #e0e0e0;
+            text-align: center;
         }
 
         .form-label {
             font-weight: 500;
-            color: #333;
+            color: #e0e0e0;
         }
 
         .form-control {
-            border-radius: 12px;
-            border: 1px solid #d1d1d6;
-            padding: 10px 15px;
-            font-size: 1rem;
+            background-color: #333;
+            border: 1px solid #555;
+            color: #e0e0e0;
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            border-radius: 4px;
+        }
+
+        .form-control:focus {
+            border-color: #808080;
+            box-shadow: 0 0 0 0.25rem rgba(128, 128, 128, 0.25);
         }
 
         #map {
             height: 320px;
             width: 100%;
             border-radius: 12px;
-            border: 1px solid #ccc;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #555;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
         }
 
+        /* Botões estilizados */
         .btn-primary {
-            background-color: #000;
-            border-color: #000;
+            background-color: #808080;
+            border-color: #808080;
+            padding: 0.75rem 2rem;
             border-radius: 25px;
-            padding: 10px 24px;
             font-weight: 600;
-            font-size: 1rem;
-            transition: background-color 0.2s;
+            transition: background-color 0.3s, border-color 0.3s;
         }
 
         .btn-primary:hover {
-            background-color: #333;
-            border-color: #333;
+            background-color: #A9A9A9;
+            border-color: #A9A9A9;
         }
 
         .btn-secondary {
-            background-color: #e5e5ea;
-            color: #000;
+            background-color: #333;
+            color: #e0e0e0;
             border: none;
             border-radius: 25px;
-            padding: 10px 24px;
-            font-weight: 500;
-            font-size: 1rem;
-            transition: background-color 0.2s;
+            padding: 0.75rem 2rem;
+            margin-right: 1rem;
+            font-weight: 600;
+            transition: background-color 0.3s;
         }
 
         .btn-secondary:hover {
-            background-color: #d1d1d6;
+            background-color: #444;
         }
 
         form {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+            background-color: #1e1e1e;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         footer {
-            background-color: #000;
-            color: #fff;
+            background-color: #2a2a2a;
+            color: #ccc;
             text-align: center;
-            padding: 15px;
-            margin-top: auto;
+            padding: 2rem 0;
+            width: 100%;
+        }
+
+        footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        footer .contact-info p,
+        footer .footer-copy {
+            margin: 0.5rem 0;
+        }
+
+        footer .footer-link {
+            color: #808080;
+            text-decoration: none;
+        }
+
+        footer .footer-link:hover {
+            color: #A9A9A9;
+            text-decoration: underline;
+        }
+
+        footer .social-icons {
+            margin: 1rem 0;
+        }
+
+        footer .social-icons a {
+            margin: 0 0.5rem;
+        }
+
+        footer .social-icons img {
+            width: 32px;
+            height: 32px;
+            filter: invert(80%) sepia(20%) hue-rotate(30deg);
+            transition: filter 0.3s;
+        }
+
+        footer .social-icons img:hover {
+            filter: invert(50%) sepia(90%) hue-rotate(10deg) brightness(1.2);
+        }
+
+        footer .footer-copy {
+            font-size: 0.875rem;
+            color: #777;
+        }
+
+        @media (max-width: 480px) {
+            form {
+                padding: 1.5rem;
+                max-width: 90%;
+            }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Uber Clone</a>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Início</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Minhas Corridas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Perfil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Sair</a></li>
-                </ul>
-            </div>
-        </div>
+<header class="py-3" style="background-color: #1e1e1e;">
+    <nav class="container d-flex justify-content-between align-items-center">
+        <a class="brand text-decoration-none" href="#">Uber Clone</a>
+        <ul class="nav">
+            <li class="nav-item"><a class="nav-link" href="Dashboard.php">Início</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Minhas Corridas</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Perfil</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Sair</a></li>
+        </ul>
     </nav>
 </header>
 
@@ -147,13 +207,25 @@
         </div>
         <div id="map" class="mb-3"></div>
 
-        <a href="Dashboard.php" class="btn btn-secondary mt-4 me-2">Voltar</a>
+        <a href="Dashboard.php" class="btn btn-secondary mt-4">Voltar</a>
         <button type="submit" name="acao" value="criar" class="btn btn-primary mt-4">Solicitar Corrida</button>
     </form>
 </main>
 
 <footer>
-    &copy; 2025 Uber Clone - Todos os direitos reservados.
+    <div class="container">
+        <div class="social-icons">
+            <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+            <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+            <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+        </div>
+        <div class="contact-info">
+            <p>Contato: suporte@uberclone.com</p>
+        </div>
+        <div class="footer-copy">
+            &copy; 2025 Uber Clone - Todos os direitos reservados.
+        </div>
+    </div>
 </footer>
 
 <!-- Leaflet JS -->
@@ -163,44 +235,33 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-    // Inicializa o mapa com vista padrão
-    var map = L.map('map', {
-        zoomControl: false  // Desabilita controle padrão para reposicionar
-    }).setView([-23.55052, -46.633308], 13);
+    var map = L.map('map', { zoomControl: false }).setView([-23.55052, -46.633308], 13);
 
-    // Adiciona tile layer OpenStreetMap
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap contributors'
     }).addTo(map);
 
-    // Adiciona controle de zoom no canto superior direito
     L.control.zoom({ position: 'topright' }).addTo(map);
 
-    // Função para criar marcador e popup
     function criarMarcador(latlng, texto) {
         return L.marker(latlng).addTo(map).bindPopup(texto);
     }
 
-    // Posições exemplo para origem e destino
-    var origemLatLng = [-23.55052, -46.633308];    // São Paulo centro
-    var destinoLatLng = [-23.5587, -46.6253];      // Próximo ponto
+    var origemLatLng = [-23.55052, -46.633308];
+    var destinoLatLng = [-23.5587, -46.6253];
 
-    // Marcadores
     var marcadorOrigem = criarMarcador(origemLatLng, "Origem");
     var marcadorDestino = criarMarcador(destinoLatLng, "Destino");
 
-    // Ajusta o mapa para mostrar os dois marcadores
     var group = new L.featureGroup([marcadorOrigem, marcadorDestino]);
     map.fitBounds(group.getBounds().pad(0.2));
 
-    // Linha entre origem e destino
     var linha = L.polyline([origemLatLng, destinoLatLng], {
-        color: '#000',
+        color: '#808080',
         weight: 4,
         opacity: 0.7,
         dashArray: '10, 10'
     }).addTo(map);
-
 </script>
 
 </body>

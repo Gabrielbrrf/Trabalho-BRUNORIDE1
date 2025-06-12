@@ -8,83 +8,136 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
 
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #121212;
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            color: #1c1c1e;
+            color: #e0e0e0;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
             margin: 0;
         }
+
         header {
             background-color: #000;
             color: #fff;
             padding: 15px 30px;
         }
+
         header .navbar-brand {
             font-size: 1.5rem;
             font-weight: bold;
         }
+
         .navbar-nav .nav-link {
             color: #fff;
             font-weight: 500;
             margin-left: 15px;
         }
+
         .navbar-nav .nav-link:hover {
             text-decoration: underline;
         }
+
         h2 {
             font-weight: 600;
             font-size: 1.75rem;
             margin-bottom: 1.5rem;
-            color: #000;
-        }
-        .btn-primary {
-            background-color: #000;
-            border-color: #000;
-            border-radius: 25px;
-            padding: 10px 24px;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: background-color 0.2s;
-        }
-        .btn-primary:hover {
-            background-color: #333;
-            border-color: #333;
-        }
-        .btn-secondary {
-            background-color: #e5e5ea;
-            color: #000;
-            border: none;
-            border-radius: 25px;
-            padding: 10px 24px;
-            font-weight: 500;
-            font-size: 1rem;
-            transition: background-color 0.2s;
-        }
-        .btn-secondary:hover {
-            background-color: #d1d1d6;
-        }
-        footer {
-            background-color: #000;
-            color: #fff;
+            color: #90ee90;
             text-align: center;
-            padding: 15px;
-            margin-top: auto;
         }
+
         #map {
             height: 400px;
             width: 100%;
             border-radius: 12px;
-            border: 1px solid #ccc;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #444;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
             margin-top: 1rem;
+        }
+
+        footer {
+            background-color: #000;
+            color: #ccc;
+            text-align: center;
+            padding: 15px;
+            margin-top: auto;
+        }
+
+        /* Botões com Bootstrap padrão */
+        .btn-secondary {
+            background-color: #444;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            padding: 10px 24px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+        .btn-secondary:hover {
+            background-color: #5e5e5e;
+            color: #e0e0e0;
+        }
+
+        .btn-primary {
+            background-color: #008000;
+            border: none;
+            border-radius: 30px;
+            padding: 10px 24px;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #fff;
+            transition: background-color 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #006600;
+        }
+
+        .btn-warning {
+            background-color: #ffc107;
+            border: none;
+            border-radius: 30px;
+            padding: 10px 24px;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #000;
+            transition: background-color 0.3s;
+        }
+        .btn-warning:hover {
+            background-color: #e0a800;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            border: none;
+            border-radius: 30px;
+            padding: 10px 24px;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #fff;
+            transition: background-color 0.3s;
+        }
+        .btn-danger:hover {
+            background-color: #b02a37;
+        }
+
+        @media (max-width: 480px) {
+            .btn-secondary,
+            .btn-primary,
+            .btn-warning,
+            .btn-danger {
+                width: 100%;
+                margin-bottom: 0.75rem;
+            }
         }
     </style>
 </head>
@@ -93,9 +146,13 @@
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Uber Clone</a>
-            <div class="collapse navbar-collapse">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Dashboard.php">Início</a></li>
+
                     <li class="nav-item"><a class="nav-link" href="#">Minhas Corridas</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Perfil</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Sair</a></li>
@@ -105,7 +162,7 @@
     </nav>
 </header>
 
-<main class="container mt-5">
+<main class="container mt-5 mb-5">
     <?php
     $origem = $_GET['origem'] ?? '';
     $destino = $_GET['destino'] ?? '';
@@ -118,34 +175,44 @@
 
     <div id="map"></div>
 
-    <a href="Dashboard.php" class="btn btn-secondary mt-4 me-2">Voltar</a>
-    <a href="CadastroCorrida.php" class="btn btn-primary mt-4">Solicitar Nova Corrida</a>
-    <a href="EditarCorrida.php?id=<?= urlencode($id) ?>&origem=<?= urlencode($origem) ?>&destino=<?= urlencode($destino) ?>" class="btn btn-warning mt-4 ms-2">Editar Corrida</a>
-    <?php if ($id): ?>
-        <button class="btn btn-danger mt-4 ms-2" onclick="cancelarCorrida(<?= htmlspecialchars(json_encode($id)) ?>)">Cancelar Corrida</button>
-    <?php endif; ?>
+    <div class="mt-4 d-flex flex-wrap justify-content-center gap-3">
+        <a href="Dashboard.php" class="btn btn-secondary">
+            <i class="fas fa-arrow-left"></i> Voltar
+        </a>
+        <a href="CadastroCorrida.php" class="btn btn-primary">
+            <i class="fas fa-plus-circle"></i> Nova Corrida
+        </a>
+        <a href="EditarCorrida.php?id=<?= urlencode($id) ?>&origem=<?= urlencode($origem) ?>&destino=<?= urlencode($destino) ?>" class="btn btn-warning">
+            <i class="fas fa-edit"></i> Editar
+        </a>
+        <?php if ($id): ?>
+            <button class="btn btn-danger" onclick="cancelarCorrida(<?= htmlspecialchars(json_encode($id)) ?>)">
+                <i class="fas fa-times"></i> Cancelar
+            </button>
+        <?php endif; ?>
+    </div>
 </main>
 
 <footer>
     &copy; 2025 Uber Clone - Todos os direitos reservados.
 </footer>
 
-<!-- Leaflet JS -->
+<!-- JS: Leaflet & Routing -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<!-- Leaflet Routing Machine -->
 <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
 
-<!-- Bootstrap Bundle -->
+<!-- JS: Bootstrap -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
     function cancelarCorrida(id) {
         if (confirm('Tem certeza que deseja cancelar esta corrida?')) {
-            window.location.href = "../../controller/CorridaController.php?acao=excluir&id=" + encodeURIComponent(id);
+            window.location.href = "Dashboard.php";
         }
     }
 
-    // Função para geocodificar texto para latlng usando Nominatim (OpenStreetMap)
+
+
     async function geocode(address) {
         const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}`;
         const response = await fetch(url);
@@ -167,7 +234,6 @@
             attribution: '© OpenStreetMap contributors'
         }).addTo(map);
 
-        // Geocodifica origem e destino
         const origemCoords = await geocode(origemStr);
         const destinoCoords = await geocode(destinoStr);
 
@@ -180,11 +246,23 @@
                 routeWhileDragging: false,
                 draggableWaypoints: false,
                 addWaypoints: false,
-                showAlternatives: false
+                showAlternatives: false,
+                lineOptions: {
+                    styles: [{color: '#008000', opacity: 0.7, weight: 5}]
+                },
+                createMarker: function(i, wp) {
+                    return L.marker(wp.latLng, {
+                        icon: L.icon({
+                            iconUrl: i === 0 ? 'https://cdn-icons-png.flaticon.com/512/684/684908.png' : 'https://cdn-icons-png.flaticon.com/512/684/684908.png',
+                            iconSize: [32, 32],
+                            iconAnchor: [16, 32],
+                            popupAnchor: [0, -32]
+                        })
+                    }).bindPopup(i === 0 ? "Origem" : "Destino");
+                }
             }).addTo(map);
         } else {
-            alert('Não foi possível localizar a origem ou destino no mapa Faz o L e engole o choro');
-            // Apenas mostra o mapa padrão
+            alert('Não foi possível localizar a origem ou destino no mapa.');
             map.setView([-23.55052, -46.633308], 13);
         }
     })();

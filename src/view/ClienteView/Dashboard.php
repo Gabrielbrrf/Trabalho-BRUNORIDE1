@@ -15,16 +15,16 @@ $usuario = $_SESSION['usuario'];
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #000;
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            color: #1c1c1e;
+            color: #e0e0e0;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
             margin: 0;
         }
         header {
-            background-color: #000;
+            background-color: #121212;
             color: #fff;
             padding: 15px 30px;
         }
@@ -33,12 +33,13 @@ $usuario = $_SESSION['usuario'];
             font-weight: bold;
         }
         .navbar-nav .nav-link {
-            color: #fff;
+            color: #e0e0e0;
             font-weight: 500;
             margin-left: 15px;
         }
         .navbar-nav .nav-link:hover {
             text-decoration: underline;
+            color: #90ee90;
         }
         .content-wrapper {
             flex: 1;
@@ -52,15 +53,15 @@ $usuario = $_SESSION['usuario'];
         aside {
             flex: 0 0 220px;
             min-width: 180px;
-            background: #fff;
+            background: #222;
             border-radius: 15px;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.8);
             padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: #333;
+            color: #ccc;
             position: relative;
             overflow: hidden;
             min-height: 180px;
@@ -71,35 +72,36 @@ $usuario = $_SESSION['usuario'];
             height: auto;
             border-radius: 10px;
             margin-top: 10px;
-            filter: brightness(0.9);
+            filter: brightness(0.8);
         }
         main.container {
             flex: 1;
-            background: #fff;
+            background: #121212;
             border-radius: 15px;
             padding: 40px 30px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.8);
             text-align: center;
             max-width: none;
             position: relative;
+            color: #e0e0e0;
         }
         h2 {
             font-weight: 600;
             font-size: 1.75rem;
             margin-bottom: 1rem;
-            color: #000;
+            color: #90ee90;
         }
         p {
             font-size: 1.1rem;
             margin-bottom: 2rem;
-            color: #555;
+            color: #ccc;
         }
         .d-flex.gap-3.mb-3 {
             justify-content: center;
         }
         .btn-primary {
-            background-color: #000;
-            border-color: #000;
+            background-color: #90ee90;
+            border-color: #90ee90;
             border-radius: 25px;
             padding: 12px 30px;
             font-weight: 600;
@@ -107,49 +109,59 @@ $usuario = $_SESSION['usuario'];
             transition: background-color 0.3s;
             flex: 1;
             max-width: 180px;
+            color: #000;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
         }
         .btn-primary:hover {
-            background-color: #333;
-            border-color: #333;
+            background-color: #70cc70;
+            border-color: #70cc70;
+            color: #000;
         }
         .btn-info {
             border-radius: 25px;
             padding: 12px 30px;
             font-weight: 600;
             font-size: 1rem;
-            color: #fff;
+            color: #000;
             background-color: #0dcaf0;
             border: none;
             transition: background-color 0.3s;
             flex: 1;
             max-width: 180px;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
         }
         .btn-info:hover {
             background-color: #31d2f2;
+            color: #000;
         }
         .btn-danger {
             border-radius: 25px;
             padding: 12px 30px;
             font-weight: 600;
-            font-size: 1rem;
             background-color: #dc3545;
             border: none;
             color: #fff;
             transition: background-color 0.3s;
             flex: 1;
             max-width: 180px;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
         }
         .btn-danger:hover {
             background-color: #bb2d3b;
         }
         footer {
-            background-color: #000;
-            color: #fff;
+            background-color: #121212;
+            color: #ccc;
             text-align: center;
             padding: 15px;
             margin-top: auto;
         }
-
         /* Banner animado */
         #ad-banner {
             margin: 30px auto 0 auto;
@@ -158,11 +170,10 @@ $usuario = $_SESSION['usuario'];
             border-radius: 15px;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.8);
             cursor: pointer;
             user-select: none;
         }
-
         #ad-banner img.bg-image {
             position: absolute;
             top: 0;
@@ -171,12 +182,11 @@ $usuario = $_SESSION['usuario'];
             height: 100%;
             object-fit: cover;
             opacity: 0.25;
-            filter: brightness(0.7);
+            filter: brightness(0.5);
             pointer-events: none;
             transition: opacity 0.3s ease;
             border-radius: 15px;
         }
-
         #ad-banner .text {
             position: relative;
             z-index: 2;
@@ -193,18 +203,15 @@ $usuario = $_SESSION['usuario'];
             animation: fadeInUp 1s forwards;
             animation-delay: 0.5s;
         }
-
         #ad-banner:hover img.bg-image {
             opacity: 0.4;
         }
-
         @keyframes fadeInUp {
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-
         /* Responsividade */
         @media (max-width: 991px) {
             .content-wrapper {
@@ -241,7 +248,6 @@ $usuario = $_SESSION['usuario'];
             <a class="navbar-brand" href="#">Uber Clone</a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Início</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Minhas Corridas</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Perfil</a></li>
                     <li class="nav-item"><a class="nav-link" href="../../controller/logout.php">Sair</a></li>
@@ -270,9 +276,7 @@ $usuario = $_SESSION['usuario'];
         <!-- Banner animado JS -->
         <div id="ad-banner" title="Propaganda Bolsonaro">
             <img class="bg-image" src="https://conteudo.imguol.com.br/c/noticias/68/2025/06/10/o-ex-presidente-jair-bolsonaro-durante-sessao-de-interrogatorio-no-stf-1749567761281_v2_360x480.jpg.webp" alt="Bolsonaro" />
-            <div class="text">"Transporte confiável com segurança e agilidade.",
-        "Serviço que conecta você com o Brasil.",
-        "Bolsonaro apoiando a mobilidade do país!"</div>
+            <div class="text">"Transporte confiável com segurança e agilidade."</div>
         </div>
     </main>
 
