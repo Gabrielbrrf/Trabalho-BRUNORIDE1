@@ -1,0 +1,161 @@
+/* Reset básico */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo da página */
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+
+/* Cabeçalho com nome da marca */
+.brand {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #808080;
+    z-index: 1000;
+}
+
+/* Formulário de login */
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding: 1rem;
+}
+
+form {
+    background-color: #1e1e1e;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+h2 {
+    margin-bottom: 1.5rem;
+    color: #e0e0e0;
+    text-align: center;
+}
+
+.form-control,
+.form-select {
+    background-color: #333;
+    border: 1px solid #555;
+    color: #e0e0e0;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #808080;
+    box-shadow: 0 0 0 0.25rem rgba(128, 128, 128, 0.25);
+}
+
+/* Botões */
+.btn-primary {
+    background-color: #808080;
+    border-color: #808080;
+    padding: 0.75rem;
+    width: 100%;
+    border-radius: 4px;
+}
+
+.btn-primary:hover {
+    background-color: #A9A9A9;
+    border-color: #A9A9A9;
+}
+
+/* Rodapé */
+footer {
+    background-color: #2a2a2a;
+    color: #ccc;
+    text-align: center;
+    padding: 2rem 0;
+    width: 100%;
+}
+
+footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+footer .contact-info p,
+footer .footer-copy {
+    margin: 0.5rem 0;
+}
+
+footer .footer-link {
+    color: #808080;
+    text-decoration: none;
+}
+
+footer .footer-link:hover {
+    color: #A9A9A9;
+    text-decoration: underline;
+}
+
+footer .social-icons {
+    margin: 1rem 0;
+}
+
+footer .social-icons a {
+    margin: 0 0.5rem;
+}
+
+footer .social-icons img {
+    width: 32px;
+    height: 32px;
+    filter: invert(80%) sepia(20%) hue-rotate(30deg);
+    transition: filter 0.3s;
+}
+
+footer .social-icons img:hover {
+    filter: invert(50%) sepia(90%) hue-rotate(10deg) brightness(1.2);
+}
+
+footer .footer-copy {
+    font-size: 0.875rem;
+    color: #777;
+}
+
+/* Media Queries para dispositivos móveis */
+@media (max-width: 480px) {
+    body {
+        padding: 0 1rem;
+    }
+
+    form {
+        padding: 1.5rem;
+        max-width: 90%;
+    }
+
+    .form-control,
+    .form-select {
+        padding: 0.5rem;
+    }
+
+    .btn-primary {
+        padding: 0.5rem;
+    }
+}
