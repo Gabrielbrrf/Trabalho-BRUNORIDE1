@@ -19,4 +19,7 @@ Este é um projeto em HTML/CSS (e futuramente JavaScript) que simula um site par
 
 - HTML5
 - CSS3
-
+- PHP
+- JAVA SCRIPT
+- SQL
+- BOOTSTRAP
