@@ -34,12 +34,13 @@ if (!$veiculo) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <style>
         body {
-            background-color: #f4f4f4;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+    background-color: #121212; /* Preto suave */
+    color: #fff; /* Texto padrão branco */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 
         header {
             background-color: #000;
@@ -166,13 +167,13 @@ footer .footer-copy {
 </header>
 
 <main>
-    <div class="card">
-        <h2 class="text-danger"><i class="bi bi-exclamation-triangle-fill me-2"></i>Excluir Veículo</h2>
-        <div class="alert alert-warning">
+    <div class="card text-center bg-dark text-white">
+        <h2><i class="bi bi-exclamation-triangle-fill me-2"></i>Excluir Veículo</h2>
+        <div class="alert alert-warning text-dark bg-light">
             Tem certeza que deseja excluir o veículo <strong><?= htmlspecialchars($veiculo['modelo']) ?></strong><br>
             (Placa: <?= htmlspecialchars($veiculo['placa']) ?>)?
         </div>
-        <form action="../../controller/VeiculoController.php" method="post" class="text-center mt-4">
+        <form action="../../controller/VeiculoController.php" method="post" class="mt-4">
             <input type="hidden" name="acao" value="excluir">
             <input type="hidden" name="id" value="<?= htmlspecialchars($veiculo['id']) ?>">
             <button type="submit" class="btn btn-danger"><i class="bi bi-trash-fill me-1"></i>Sim, excluir</button>

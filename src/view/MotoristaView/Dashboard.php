@@ -15,7 +15,8 @@ $usuario = $_SESSION['usuario'];
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <style>
         body {
-            background-color: #f4f4f4;
+            background-color: #121212; /* fundo preto suave */
+            color: #e0e0e0; /* texto claro */
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             min-height: 100vh;
             display: flex;
@@ -35,21 +36,22 @@ $usuario = $_SESSION['usuario'];
         }
 
         .nav-link {
-            color: #fff !important;
+            color: #eee !important;
             margin-left: 15px;
         }
 
         .nav-link:hover {
             text-decoration: underline;
+            color: #0dcaf0 !important; /* destaque ao passar mouse */
         }
 
         .dashboard-container {
             max-width: 1000px;
             margin: 30px auto;
-            background-color: #fff;
+            background-color: #1f1f1f; /* fundo escuro do container */
             padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
             flex-grow: 1;
         }
 
@@ -57,7 +59,12 @@ $usuario = $_SESSION['usuario'];
             font-weight: 600;
             font-size: 1.75rem;
             margin-bottom: 1rem;
-            color: #000;
+            color: #fff;
+        }
+
+        p {
+            color: #ccc;
+            font-size: 1.1rem;
         }
 
         .dashboard-buttons a {
@@ -72,11 +79,13 @@ $usuario = $_SESSION['usuario'];
             justify-content: center;
             gap: 8px;
             text-decoration: none;
+            transition: background-color 0.3s ease;
         }
 
         .dashboard-buttons .btn-primary {
             background-color: #198754;
             color: #fff;
+            border: none;
         }
         .dashboard-buttons .btn-primary:hover {
             background-color: #157347;
@@ -85,16 +94,18 @@ $usuario = $_SESSION['usuario'];
 
         .dashboard-buttons .btn-info {
             background-color: #0dcaf0;
-            color: #fff;
+            color: #000;
+            border: none;
         }
         .dashboard-buttons .btn-info:hover {
             background-color: #31d2f2;
-            color: #fff;
+            color: #000;
         }
 
         .dashboard-buttons .btn-danger {
             background-color: #dc3545;
             color: #fff;
+            border: none;
         }
         .dashboard-buttons .btn-danger:hover {
             background-color: #bb2d3b;
@@ -106,6 +117,7 @@ $usuario = $_SESSION['usuario'];
             height: auto;
             border-radius: 10px;
             margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.6);
         }
 
         /* Rodapé */
@@ -171,14 +183,9 @@ $usuario = $_SESSION['usuario'];
             <a class="navbar-brand" href="#">🚗 BlackDrive</a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item">
-                        <li class="nav-item"><a class="nav-link" href="<?= 'HistoricoViagens.php' ?>">Minhas Corridas</a></li>
-                    </li>
-                    <a class="nav-link" href="/Trabalho-BRUNORIDE1/src/view/MotoristaView/PerfilMotorista.php?email=<?= urlencode($_SESSION['usuario']['email']) ?>">Perfil</a>
-                    <li class="nav-item"><a class="nav-link" href="<?= 'HistoricoViagens.php' ?>">Minhas Corridas</a></li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../../controller/logout.php">Sair</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="HistoricoViagens.php">Minhas Corridas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Trabalho-BRUNORIDE1/src/view/MotoristaView/PerfilMotorista.php?email=<?= urlencode($_SESSION['usuario']['email']) ?>">Perfil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../controller/logout.php">Sair</a></li>
                 </ul>
             </div>
         </div>

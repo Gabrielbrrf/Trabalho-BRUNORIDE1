@@ -34,7 +34,8 @@ if (!$veiculo) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <style>
         body {
-            background-color: #f4f4f4;
+            background-color: #121212;
+            color: #f1f1f1;
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             min-height: 100vh;
             display: flex;
@@ -63,64 +64,104 @@ if (!$veiculo) {
 
         main {
             flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .card {
+            background-color: #1e1e1e;
             border-radius: 15px;
+            padding: 30px;
+            width: 100%;
+            max-width: 500px;
+            color: #f1f1f1;
         }
 
-                /* Rodapé */
-footer {
-    background-color: #2a2a2a;
-    color: #ccc;
-    text-align: center;
-    padding: 2rem 0;
-    width: 100%;
-}
+        .form-control {
+            background-color: #2a2a2a;
+            color: #f1f1f1;
+            border: 1px solid #555;
+        }
 
-footer .container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
+        .form-control:focus {
+            background-color: #2a2a2a;
+            color: #fff;
+            border-color: #444;
+            box-shadow: none;
+        }
 
-footer .contact-info p,
-footer .footer-copy {
-    margin: 0.5rem 0;
-}
+        .btn-primary {
+            background-color: #333;
+            border: none;
+            border-radius: 25px;
+        }
 
-footer .footer-link {
-    color: #808080;
-    text-decoration: none;
-}
+        .btn-primary:hover {
+            background-color: #444;
+        }
 
-footer .footer-link:hover {
-    color: #A9A9A9;
-    text-decoration: underline;
-}
+        .btn-secondary {
+            background-color: #555;
+            border: none;
+            border-radius: 25px;
+        }
 
-footer .social-icons {
-    margin: 1rem 0;
-}
+        .btn-secondary:hover {
+            background-color: #666;
+        }
 
-footer .social-icons a {
-    margin: 0 0.5rem;
-}
+        footer {
+            background-color: #2a2a2a;
+            color: #ccc;
+            text-align: center;
+            padding: 2rem 0;
+            width: 100%;
+        }
 
-footer .social-icons img {
-    width: 32px;
-    height: 32px;
-    filter: invert(80%) sepia(20%) hue-rotate(30deg);
-    transition: filter 0.3s;
-}
+        footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-footer .social-icons img:hover {
-    filter: invert(50%) sepia(90%) hue-rotate(10deg) brightness(1.2);
-}
+        footer .contact-info p,
+        footer .footer-copy {
+            margin: 0.5rem 0;
+        }
 
-footer .footer-copy {
-    font-size: 0.875rem;
-    color: #777;
-}
+        footer .footer-link {
+            color: #808080;
+            text-decoration: none;
+        }
+
+        footer .footer-link:hover {
+            color: #A9A9A9;
+            text-decoration: underline;
+        }
+
+        footer .social-icons {
+            margin: 1rem 0;
+        }
+
+        footer .social-icons a {
+            margin: 0 0.5rem;
+        }
+
+        footer .social-icons img {
+            width: 32px;
+            height: 32px;
+            filter: invert(80%) sepia(20%) hue-rotate(30deg);
+            transition: filter 0.3s;
+        }
+
+        footer .social-icons img:hover {
+            filter: invert(50%) sepia(90%) hue-rotate(10deg) brightness(1.2);
+        }
+
+        footer .footer-copy {
+            font-size: 0.875rem;
+            color: #777;
+        }
     </style>
 </head>
 
@@ -132,8 +173,10 @@ footer .footer-copy {
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="Dashboard.php">Início</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?= 'HistoricoViagens.php' ?>">Minhas Corridas</a></li>
-                    <a class="nav-link" href="/Trabalho-BRUNORIDE1/src/view/MotoristaView/PerfilMotorista.php?email=<?= urlencode($_SESSION['usuario']['email']) ?>">Perfil</a>
+                    <li class="nav-item"><a class="nav-link" href="HistoricoViagens.php">Minhas Corridas</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Trabalho-BRUNORIDE1/src/view/MotoristaView/PerfilMotorista.php?email=<?= urlencode($_SESSION['usuario']['email']) ?>">Perfil</a>
+                    </li>
                     <li class="nav-item"><a class="nav-link" href="../../controller/logout.php">Sair</a></li>
                 </ul>
             </div>
@@ -141,44 +184,48 @@ footer .footer-copy {
     </nav>
 </header>
 
-<main class="container mt-5">
-    <h2 class="mb-4">Editar Veículo</h2>
-    <form action="../../controller/VeiculoController.php" method="post">
-        <input type="hidden" name="acao" value="editar">
-        <input type="hidden" name="id" value="<?= htmlspecialchars($veiculo['id']) ?>">
-        <div class="mb-3">
-            <label class="form-label">Modelo:</label>
-            <input type="text" name="modelo" class="form-control" value="<?= htmlspecialchars($veiculo['modelo']) ?>" required>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Placa:</label>
-            <input type="text" name="placa" class="form-control" value="<?= htmlspecialchars($veiculo['placa']) ?>" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Salvar Alterações</button>
-        <a href="ListarVeiculos.php" class="btn btn-secondary">Cancelar</a>
-    </form>
+<main>
+    <div class="card shadow">
+        <h2 class="mb-4 text-center">Editar Veículo</h2>
+        <form action="../../controller/VeiculoController.php" method="post">
+            <input type="hidden" name="acao" value="editar">
+            <input type="hidden" name="id" value="<?= htmlspecialchars($veiculo['id']) ?>">
+            <div class="mb-3">
+                <label class="form-label">Modelo:</label>
+                <input type="text" name="modelo" class="form-control" value="<?= htmlspecialchars($veiculo['modelo']) ?>" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Placa:</label>
+                <input type="text" name="placa" class="form-control" value="<?= htmlspecialchars($veiculo['placa']) ?>" required>
+            </div>
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                <a href="ListarVeiculos.php" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
 </main>
 
 <footer>
-        <div class="container">
-            <div class="contact-info">
-                <p>📧 <a href="mailto:blackdrive@corridas" class="footer-link">blackdrive@corridas</a></p>
-                <p>📍 Av. Brasil, São Paulo-SP, Brasil</p>
-            </div>
-            <div class="social-icons">
-                <a href="#" aria-label="Baixar no Google Play">
-                    <img src="../../style/icons/google-play.svg" alt="Google Play">
-                </a>
-                <a href="https://instagram.com/BlackDrive" target="_blank" aria-label="Instagram">
-                    <img src="../../style/icons/instagram.svg" alt="Instagram">
-                </a>
-                <a href="https://x.com/BlackDrive" target="_blank" aria-label="X">
-                    <img src="../../style/icons/x.svg" alt="X">
-                </a>
-            </div>
-            <p class="footer-copy">&copy; 2025 BlackDrive. Todos os direitos reservados.</p>
+    <div class="container">
+        <div class="contact-info">
+            <p>📧 <a href="mailto:blackdrive@corridas" class="footer-link">blackdrive@corridas</a></p>
+            <p>📍 Av. Brasil, São Paulo-SP, Brasil</p>
         </div>
-    </footer>
+        <div class="social-icons">
+            <a href="#" aria-label="Baixar no Google Play">
+                <img src="../../style/icons/google-play.svg" alt="Google Play">
+            </a>
+            <a href="https://instagram.com/BlackDrive" target="_blank" aria-label="Instagram">
+                <img src="../../style/icons/instagram.svg" alt="Instagram">
+            </a>
+            <a href="https://x.com/BlackDrive" target="_blank" aria-label="X">
+                <img src="../../style/icons/x.svg" alt="X">
+            </a>
+        </div>
+        <p class="footer-copy">&copy; 2025 BlackDrive. Todos os direitos reservados.</p>
+    </div>
+</footer>
 
 </body>
 </html>

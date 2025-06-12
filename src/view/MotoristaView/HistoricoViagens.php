@@ -22,98 +22,140 @@ $viagens = $result->fetch_all(MYSQLI_ASSOC);
     <title>Histórico de Viagens</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f4f4f4;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+ <style>
+    body {
+        background-color: #121212; /* fundo escuro */
+        color: #ffffff; /* texto branco */
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
 
-        header {
-            background-color: #000;
-            color: #fff;
-            padding: 15px 30px;
-        }
+    header {
+        background-color: #000;
+        color: #fff;
+        padding: 15px 30px;
+    }
 
-        .navbar-brand {
-            font-size: 1.8rem;
-            font-weight: bold;
-        }
+    .navbar-brand {
+        font-size: 1.8rem;
+        font-weight: bold;
+    }
 
-        .nav-link {
-            color: #fff !important;
-            margin-left: 15px;
-        }
+    .nav-link {
+        color: #fff !important;
+        margin-left: 15px;
+    }
 
-        .nav-link:hover {
-            text-decoration: underline;
-        }
+    .nav-link:hover {
+        text-decoration: underline;
+    }
 
-        main {
-            flex: 1;
-            max-width: 1000px;
-            margin: 30px auto;
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
+    main {
+        flex: 1;
+        max-width: 1000px;
+        margin: 30px auto;
+        background-color: #1e1e1e; /* card escuro */
+        color: #ffffff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
 
-                /* Rodapé */
-footer {
-    background-color: #2a2a2a;
-    color: #ccc;
-    text-align: center;
-    padding: 2rem 0;
+    .table {
     width: 100%;
+    border-collapse: collapse;
+    background-color: #222; /* fundo escuro, mas confortável */
+    color: #eee; /* texto claro */
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-footer .container {
-    max-width: 1200px;
-    margin: 0 auto;
+.table thead {
+    background-color: #333; /* cabeçalho um pouco mais claro */
+    color: #fff;
+    font-weight: bold;
 }
 
-footer .contact-info p,
-footer .footer-copy {
-    margin: 0.5rem 0;
+.table th,
+.table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #444;
 }
 
-footer .footer-link {
-    color: #808080;
-    text-decoration: none;
+.table tbody tr:hover {
+    background-color: #444; /* hover para destacar linha */
 }
 
-footer .footer-link:hover {
-    color: #A9A9A9;
-    text-decoration: underline;
+.table tbody tr:last-child td {
+    border-bottom: none;
 }
 
-footer .social-icons {
-    margin: 1rem 0;
-}
 
-footer .social-icons a {
-    margin: 0 0.5rem;
-}
+    .btn-secondary {
+        background-color: #444;
+        border: none;
+    }
 
-footer .social-icons img {
-    width: 32px;
-    height: 32px;
-    filter: invert(80%) sepia(20%) hue-rotate(30deg);
-    transition: filter 0.3s;
-}
+    .btn-secondary:hover {
+        background-color: #666;
+    }
 
-footer .social-icons img:hover {
-    filter: invert(50%) sepia(90%) hue-rotate(10deg) brightness(1.2);
-}
+    /* Rodapé */
+    footer {
+        background-color: #2a2a2a;
+        color: #ccc;
+        text-align: center;
+        padding: 2rem 0;
+        width: 100%;
+    }
 
-footer .footer-copy {
-    font-size: 0.875rem;
-    color: #777;
-}
-    </style>
+    footer .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    footer .contact-info p,
+    footer .footer-copy {
+        margin: 0.5rem 0;
+    }
+
+    footer .footer-link {
+        color: #808080;
+        text-decoration: none;
+    }
+
+    footer .footer-link:hover {
+        color: #A9A9A9;
+        text-decoration: underline;
+    }
+
+    footer .social-icons {
+        margin: 1rem 0;
+    }
+
+    footer .social-icons a {
+        margin: 0 0.5rem;
+    }
+
+    footer .social-icons img {
+        width: 32px;
+        height: 32px;
+        filter: invert(80%) sepia(20%) hue-rotate(30deg);
+        transition: filter 0.3s;
+    }
+
+    footer .social-icons img:hover {
+        filter: invert(50%) sepia(90%) hue-rotate(10deg) brightness(1.2);
+    }
+
+    footer .footer-copy {
+        font-size: 0.875rem;
+        color: #777;
+    }
+</style>
+
 </head>
 <body>
 
