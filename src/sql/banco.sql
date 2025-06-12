@@ -36,18 +36,3 @@ CREATE TABLE corridas (
 );
 
 
--- Inserindo usuários fixos
-INSERT INTO passageiros (nome, email, senha) VALUES
-('passageiro', 'passageiro@passageiro', '12345'),
-
-
-INSERT INTO motoristas (nome, cnh, email, senha) VALUES
-('motorista', '12345678900', 'motorista@motorista', '12345'),
---CREATE TABLE IF NOT EXISTS senha_recuperacao (
-   -- id INT AUTO_INCREMENT PRIMARY KEY,
-  --  email VARCHAR(100),
-   -- token VARCHAR(255),
-    --data_criacao DATETIME DEFAULT CURRENT_TIMESTAMP,
-   --usado BOOLEAN DEFAULT FALSE
---);
-
