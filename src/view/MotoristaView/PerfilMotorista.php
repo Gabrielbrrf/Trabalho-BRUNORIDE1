@@ -103,14 +103,13 @@ footer .footer-copy {
             justify-content: center;
             padding: 60px 15px;
         }
-        .profile-pic {
+        .profile-pic img {
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            background: #555 url('https://cdn-icons-png.flaticon.com/512/147/147142.png') no-repeat center;
-            background-size: cover;
-            margin-bottom: 25px;
+            object-fit: cover;
             box-shadow: 0 0 10px #90ee90;
+            margin-bottom: 25px;
         }
         .email {
             font-size: 1.5rem;
@@ -130,9 +129,9 @@ footer .footer-copy {
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="DashboardMotorista.php">Início</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Minhas Corridas</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="#">Perfil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Dashboard.php">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?= 'HistoricoViagens.php' ?>">Minhas Corridas</a></li>
+
                     <li class="nav-item"><a class="nav-link" href="../../controller/logout.php">Sair</a></li>
                 </ul>
             </div>
@@ -141,7 +140,9 @@ footer .footer-copy {
 </header>
 
 <main class="container">
-    <div class="profile-pic"></div>
+    <div class="profile-pic">
+        <img src="../../style/icons/Capy.jpg" alt="Ícone X" />
+    </div>
     <div class="email"><?= htmlspecialchars($motorista['email']) ?></div>
 </main>
 
