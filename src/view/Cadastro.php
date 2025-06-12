@@ -16,16 +16,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <title>Cadastro</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../style/style_cadastro.css">
+
+
 </head>
-<body class="bg-light">
+<body>
     <div class="container mt-5">
+        <div class="brand">BlackDrive</div>
         <div class="row justify-content-center">
             <div class="col-md-5">
-                <div class="card shadow">
+                <div class="card-shadow">
                     <div class="card-body">
-                        <h2 class="card-title text-center mb-4">Criar Conta</h2>
+                       
                         <form method="POST">
                             <div class="mb-3">
+                                 <h2 class="card-title text-center mb-4">Criar Conta</h2>
                                 <label class="form-label">Email:</label>
                                 <input type="email" name="email" class="form-control" required>
                             </div>
@@ -50,5 +56,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         </div>
     </div>
+        <footer>
+        <div class="container">
+            <div class="contact-info">
+                <p>📧 <a href="mailto:blackdrive@corridas" class="footer-link">blackdrive@corridas</a></p>
+                <p>📍 Av. Brasil, São Paulo-SP, Brasil</p>
+            </div>
+            <div class="social-icons">
+                <a href="#" aria-label="Baixar no Google Play">
+                    <img src="src/style/icons/google-play.svg" alt="Google Play">
+                </a>
+                <a href="https://instagram.com/BlackDrive" target="_blank" aria-label="Instagram">
+                    <img src="src/style/icons/instagram.svg" alt="Instagram">
+                </a>
+                <a href="https://x.com/BlackDrive" target="_blank" aria-label="X">
+                    <img src="src/style/icons/x.svg" alt="X">
+                </a>
+            </div>
+            <p class="footer-copy">&copy; 2025 BlackDrive. Todos os direitos reservados.</p>
+        </div>
+    </footer>
 </body>
 </html>
