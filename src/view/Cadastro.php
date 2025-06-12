@@ -64,14 +64,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <div class="social-icons">
                 <a href="#" aria-label="Baixar no Google Play">
-                    <img src="src/style/icons/google-play.svg" alt="Google Play">
+                   <img src="../style/icons/google-play.svg" alt="Google Play">
                 </a>
                 <a href="https://instagram.com/BlackDrive" target="_blank" aria-label="Instagram">
-                    <img src="src/style/icons/instagram.svg" alt="Instagram">
+                    <img src="../style/icons/instagram.svg" alt="Instagram">
                 </a>
                 <a href="https://x.com/BlackDrive" target="_blank" aria-label="X">
-                    <img src="src/style/icons/x.svg" alt="X">
-                </a>
+                    <img src="../style/icons/x.svg" alt="X">
             </div>
             <p class="footer-copy">&copy; 2025 BlackDrive. Todos os direitos reservados.</p>
         </div>
