@@ -231,51 +231,58 @@ $usuario = $_SESSION['usuario'];
             }
         }
 
-        /* Footer mesclado */
-        footer {
-            background-color: #121212;
-            color: #ccc;
-            padding: 20px 15px;
-            text-align: center;
-            margin-top: auto;
-            font-size: 0.9rem;
-        }
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .contact-info p {
-            margin: 5px 0;
-        }
-        .footer-link {
-            color: #90ee90;
-            text-decoration: none;
-        }
-        .footer-link:hover {
-            text-decoration: underline;
-        }
-        .social-icons {
-            margin: 10px 0 15px;
-        }
-        .social-icons a {
-            margin: 0 10px;
-            display: inline-block;
-            vertical-align: middle;
-        }
-        .social-icons img {
-            width: 28px;
-            height: 28px;
-            filter: brightness(0.8);
-            transition: filter 0.3s ease;
-        }
-        .social-icons a:hover img {
-            filter: brightness(1);
-        }
-        .footer-copy {
-            font-size: 0.85rem;
-            color: #888;
-            margin-top: 10px;
-        }
+                /* Rodapé */
+footer {
+    background-color: #2a2a2a;
+    color: #ccc;
+    text-align: center;
+    padding: 2rem 0;
+    width: 100%;
+}
+
+footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+footer .contact-info p,
+footer .footer-copy {
+    margin: 0.5rem 0;
+}
+
+footer .footer-link {
+    color: #808080;
+    text-decoration: none;
+}
+
+footer .footer-link:hover {
+    color: #A9A9A9;
+    text-decoration: underline;
+}
+
+footer .social-icons {
+    margin: 1rem 0;
+}
+
+footer .social-icons a {
+    margin: 0 0.5rem;
+}
+
+footer .social-icons img {
+    width: 32px;
+    height: 32px;
+    filter: invert(80%) sepia(20%) hue-rotate(30deg);
+    transition: filter 0.3s;
+}
+
+footer .social-icons img:hover {
+    filter: invert(50%) sepia(90%) hue-rotate(10deg) brightness(1.2);
+}
+
+footer .footer-copy {
+    font-size: 0.875rem;
+    color: #777;
+}
         @media (max-width: 576px) {
             .social-icons a {
                 margin: 0 6px;
@@ -338,26 +345,26 @@ $usuario = $_SESSION['usuario'];
     </aside>
 </div>
 
-<footer>
-  <div class="footer-container">
-    <div class="contact-info">
-      <p>📧 <a href="mailto:blackdrive@corridas" class="footer-link">blackdrive@corridas</a></p>
-      <p>📍 Av. Brasil, São Paulo-SP, Brasil</p>
-    </div>
-    <div class="social-icons">
-      <a href="#" aria-label="Baixar no Google Play">
-        <img src="../style/icons/google-play.svg" alt="Google Play" />
-      </a>
-      <a href="https://instagram.com/BlackDrive" target="_blank" aria-label="Instagram">
-        <img src="../style/icons/instagram.svg" alt="Instagram" />
-      </a>
-      <a href="https://x.com/BlackDrive" target="_blank" aria-label="X">
-        <img src="../style/icons/x.svg" alt="X" />
-      </a>
-    </div>
-    <p class="footer-copy">&copy; 2025 Uber Clone - Todos os direitos reservados.</p>
-  </div>
-</footer>
+ <footer>
+        <div class="container">
+            <div class="contact-info">
+                <p>📧 <a href="mailto:blackdrive@corridas" class="footer-link">blackdrive@corridas</a></p>
+                <p>📍 Av. Brasil, São Paulo-SP, Brasil</p>
+            </div>
+            <div class="social-icons">
+                <a href="#" aria-label="Baixar no Google Play">
+                    <img src="../../style/icons/google-play.svg" alt="Google Play">
+                </a>
+                <a href="https://instagram.com/BlackDrive" target="_blank" aria-label="Instagram">
+                    <img src="../../style/icons/instagram.svg" alt="Instagram">
+                </a>
+                <a href="https://x.com/BlackDrive" target="_blank" aria-label="X">
+                    <img src="../../style/icons/x.svg" alt="X">
+                </a>
+            </div>
+            <p class="footer-copy">&copy; 2025 BlackDrive. Todos os direitos reservados.</p>
+        </div>
+    </footer>
 
 <!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
