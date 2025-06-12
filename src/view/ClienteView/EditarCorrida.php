@@ -164,9 +164,9 @@ $destino = $_GET['destino'] ?? '';
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="Dashboard.php">Início</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Minhas Corridas</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Perfil</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Sair</a></li>
+                <li class="nav-item"><a class="nav-link" href="HistoricoCorrida.php">Minhas Corridas</a></li>
+                <li class="nav-item"><a class="nav-link" href="pPerfilPassageiro.php">Perfil</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../controller/logout.php">Sair</a></li>
             </ul>
         </div>
     </nav>

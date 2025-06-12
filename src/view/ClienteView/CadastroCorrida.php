@@ -187,9 +187,9 @@
         <a class="brand text-decoration-none" href="#">Uber Clone</a>
         <ul class="nav">
             <li class="nav-item"><a class="nav-link" href="Dashboard.php">Início</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Minhas Corridas</a></li>
+            <li class="nav-item"><a class="nav-link" href="HistoricoCorrida.php">Minhas Corridas</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Perfil</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Sair</a></li>
+            <li class="nav-item"><a class="nav-link" href="../../controller/logout.php">Sair</a></li>
         </ul>
     </nav>
 </header>
