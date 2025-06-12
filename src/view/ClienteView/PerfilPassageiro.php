@@ -66,15 +66,14 @@ if ($result && $result->num_rows > 0) {
             padding: 60px 15px;
         }
 
-        .profile-pic {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background: #555 url('https://cdn-icons-png.flaticon.com/512/147/147144.png') no-repeat center;
-            background-size: cover;
-            margin-bottom: 25px;
-            box-shadow: 0 0 10px #90ee90;
-        }
+        .profile-pic img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 10px #90ee90;
+    margin-bottom: 25px;
+}
 
         .email {
             font-size: 1.5rem;
@@ -141,7 +140,7 @@ footer .footer-copy {
 <!-- HEADER MODERNO -->
 <header class="py-3" style="background-color: #1e1e1e;">
     <nav class="container d-flex justify-content-between align-items-center">
-        <a class="brand text-decoration-none" href="#">Uber Clone</a>
+        <a class="brand text-decoration-none" href="#">BlackDrive</a>
         <ul class="nav">
             <li class="nav-item"><a class="nav-link" href="Dashboard.php">Início</a></li>
             <li class="nav-item"><a class="nav-link" href="HistoricoCorrida.php">Minhas Corridas</a></li>
@@ -152,7 +151,12 @@ footer .footer-copy {
 </header>
 
 <main class="container">
-    <div class="profile-pic"></div>
+    <div class="profile-pic">
+        <img src="../../style/icons/Bolso.png" alt="Ícone X" />
+    </div>
+
+
+
     <div class="email"><?= htmlspecialchars($passageiro['email']) ?></div>
 </main>
 

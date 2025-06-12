@@ -195,22 +195,24 @@ footer .footer-copy {
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-expand-lg container-fluid px-3 px-md-5">
-        <a class="navbar-brand" href="#">Uber Clone</a>
-        <button class="navbar-toggler btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="Dashboard.php">Início</a></li>
-                <li class="nav-item"><a class="nav-link" href="HistoricoCorrida.php">Minhas Corridas</a></li>
-                <li class="nav-item"><a class="nav-link" href="pPerfilPassageiro.php">Perfil</a></li>
-                <li class="nav-item"><a class="nav-link" href="../../controller/logout.php">Sair</a></li>
-            </ul>
-        </div>
-    </nav>
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1e1e1e;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">BlackDrive</a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav" ...>
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="Dashboard.php">Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="HistoricoCorrida.php">Minhas Corridas</a></li>
+          <a class="nav-link" href="/Trabalho-BRUNORIDE1/src/view/ClienteView/PerfilPassageiro.php?email=<?= urlencode($_SESSION['usuario']['email']) ?>">Perfil</a>
+          <li class="nav-item"><a class="nav-link" href="../../controller/logout.php">Sair</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </header>
+
 
 <main class="container">
     <h2>Editar Corrida</h2>

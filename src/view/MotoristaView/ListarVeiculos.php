@@ -130,7 +130,7 @@ footer .footer-copy {
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">🚗 Uber Clone</a>
+            <a class="navbar-brand" href="#">🚗 BlackDrive</a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="Dashboard.php">Início</a></li>

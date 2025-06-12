@@ -184,11 +184,11 @@ footer .footer-copy {
 
 <header class="py-3" style="background-color: #1e1e1e;">
     <nav class="container d-flex justify-content-between align-items-center">
-        <a class="brand text-decoration-none" href="#">Uber Clone</a>
+        <a class="brand text-decoration-none" href="#">BlackDrive</a>
         <ul class="nav">
             <li class="nav-item"><a class="nav-link" href="Dashboard.php">Início</a></li>
             <li class="nav-item"><a class="nav-link" href="HistoricoCorrida.php">Minhas Corridas</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Perfil</a></li>
+           <a class="nav-link" href="/Trabalho-BRUNORIDE1/src/view/ClienteView/PerfilPassageiro.php?email=<?= urlencode($_SESSION['usuario']['email']) ?>">Perfil</a>
             <li class="nav-item"><a class="nav-link" href="../../controller/logout.php">Sair</a></li>
         </ul>
     </nav>

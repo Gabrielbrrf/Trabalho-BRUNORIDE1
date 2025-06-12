@@ -1,10 +1,12 @@
 <?php
-session_start();
+session_start(); 
 if (!isset($_SESSION['usuario']) || $_SESSION['tipo'] !== 'passageiro') {
     header('Location: ../Login.php');
     exit();
 }
 $usuario = $_SESSION['usuario'];
+
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -299,15 +301,12 @@ footer .footer-copy {
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Uber Clone</a>
+            <a class="navbar-brand" href="#">BlackDrive</a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Minhas Corridas</a></li>
-                    <li class="nav-item">
-  <a class="nav-link" href="Perfil.php?email=<?= urlencode($usuario['email']) ?>">Perfil</a>
-</li>
-
-
+                    
+                    <li class="nav-item"><a class="nav-link" href="HistoricoCorrida.php">Minhas Corridas</a></li>
+                    <a class="nav-link" href="/Trabalho-BRUNORIDE1/src/view/ClienteView/PerfilPassageiro.php?email=<?= urlencode($_SESSION['usuario']['email']) ?>">Perfil</a>
                     <li class="nav-item"><a class="nav-link" href="../../controller/logout.php">Sair</a></li>
                 </ul>
             </div>
@@ -327,7 +326,7 @@ footer .footer-copy {
         <p>Esta é a área do cliente.</p>
         <div class="d-flex gap-3 mb-3">
             <a href="CadastroCorrida.php" class="btn btn-primary">Pedir Corrida</a>
-            <a href="HistoricoViagens.php" class="btn btn-info">Histórico de Viagens</a>
+            <a href="HistoricoCorrida.php" class="btn btn-info">Histórico de Viagens</a>
             <a href="../../controller/logout.php" class="btn btn-danger">Sair</a>
         </div>
 
